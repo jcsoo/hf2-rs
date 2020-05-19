@@ -247,7 +247,7 @@ fn flash(binary: &[u8], address: u32, bininfo: &BinInfoResponse, d: &HidDevice) 
 
         xmodem.digest(&page);
 
-        if xmodem.get_crc() != device_checksums[page_index] {
+        if xmodem.get_crc() != device_checksums[page_index] || true {
             log::debug!(
                 "ours {:04X?} != {:04X?} theirs, updating page {}",
                 xmodem.get_crc(),
